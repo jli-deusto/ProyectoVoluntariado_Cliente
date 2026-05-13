@@ -27,6 +27,9 @@ public:
 private:
     void verActividades();
     void reservarActividad();
+    void verMisReservas();
+    void cancelarReserva();
+    void reportarIncidencia();
     void verNoticias();
     void verPerfil();
 };
