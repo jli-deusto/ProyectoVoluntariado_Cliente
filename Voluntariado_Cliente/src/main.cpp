@@ -19,7 +19,7 @@
 
 
 static std::string hashear(const std::string &pw) {
-    unsigned long h = 5381;
+    unsigned long long h = 5381;
     for (unsigned char c : pw)
         h = ((h << 5) + h) + c;
     char buf[32];
@@ -42,7 +42,7 @@ static bool flujoLogin(ClientComms &comms, int &id_out, int &rol_out) {
     std::string usuario, clave;
 
     std::cout << "\n===== Iniciar Sesion =====\n";
-    std::cout << "Usuario: ";
+    std::cout << "Usuario o email: ";
     std::getline(std::cin, usuario);
     std::cout << "Clave: ";
     std::getline(std::cin, clave);

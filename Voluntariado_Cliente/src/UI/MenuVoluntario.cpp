@@ -119,6 +119,9 @@ void MenuVoluntario::verActividades() {
 
 void MenuVoluntario::reservarActividad() {
     verActividades();
+
+    { int c; while ((c = getchar()) != '\n' && c != EOF); }
+
     printf("\nIntroduce el ID de la actividad a reservar (0 para cancelar): ");
     char buf[10];
     fgets(buf, sizeof(buf), stdin);
@@ -237,6 +240,8 @@ void MenuVoluntario::cancelarReserva() {
         printf("No tienes reservas activas que cancelar.\n");
         return;
     }
+
+    { int c; while ((c = getchar()) != '\n' && c != EOF); }
 
     printf("\nIntroduce el ID de la reserva a cancelar (0 para volver): ");
     char buf[10];
@@ -407,7 +412,7 @@ void MenuVoluntario::editarPerfil() {
 
     std::string hash_pw = ""; //hash
     if (strlen(nueva_pw) > 0) {
-        unsigned long h = 5381;
+        unsigned long long h = 5381;
         for (unsigned char c : std::string(nueva_pw))
             h = ((h << 5) + h) + c;
         char buf[32];
