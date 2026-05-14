@@ -29,9 +29,11 @@ private:
     void reservarActividad();
     void verMisReservas();
     void cancelarReserva();
-    void reportarIncidencia();
     void verNoticias();
+    void verIncidencias();
+    void reportarIncidencia();
     void verPerfil();
+    void editarPerfil();
 };
 
 #endif
