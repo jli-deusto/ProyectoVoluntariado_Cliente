@@ -10,6 +10,7 @@
 
 #include "../comms/ClientComms.h"
 #include <string>
+#include <iostream>
 
 class MenuBase {
 protected:
@@ -26,11 +27,11 @@ protected:
     // utilidad compartida por todos los menús
     int pedirOpcion(int max) {
         int op = -1;
-        char buf[10];
+        std::string buf;
         printf("Seleccione una opcion: ");
         fflush(stdout);
-        fgets(buf, sizeof(buf), stdin);
-        sscanf(buf, "%d", &op);
+        std::getline(std::cin, buf);
+        if (!buf.empty()) op = std::stoi(buf);
         if (op < 1 || op > max) return -1;
         return op;
     }

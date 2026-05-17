@@ -120,12 +120,11 @@ void MenuVoluntario::verActividades() {
 void MenuVoluntario::reservarActividad() {
     verActividades();
 
-    { int c; while ((c = getchar()) != '\n' && c != EOF); }
 
     printf("\nIntroduce el ID de la actividad a reservar (0 para cancelar): ");
-    char buf[10];
-    fgets(buf, sizeof(buf), stdin);
-    int id = atoi(buf);
+    std::string buf;
+    std::getline(std::cin, buf);
+    int id = buf.empty() ? 0 : std::stoi(buf);
 
     if (id <= 0) {
     	printf("Operacion cancelada.\n");
@@ -241,12 +240,11 @@ void MenuVoluntario::cancelarReserva() {
         return;
     }
 
-    { int c; while ((c = getchar()) != '\n' && c != EOF); }
 
     printf("\nIntroduce el ID de la reserva a cancelar (0 para volver): ");
-    char buf[10];
-    fgets(buf, sizeof(buf), stdin);
-    int id_reserva = atoi(buf);
+    std::string buf;
+    std::getline(std::cin, buf);
+    int id_reserva = buf.empty() ? 0 : std::stoi(buf);
     if (id_reserva <= 0) {
     	printf("Operacion cancelada.\n");
     	return;
