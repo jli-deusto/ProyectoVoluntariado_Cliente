@@ -33,6 +33,7 @@ public:
     const std::vector<Actividad>& getActividades(ClientComms &c);
     const std::vector<std::string>& getNoticias(ClientComms &c);
     void invalidarActividades();
+    void invalidarNoticias();
 };
 
 #endif /* CACHE_CACHEMANAGER_H_ */

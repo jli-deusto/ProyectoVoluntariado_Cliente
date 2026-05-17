@@ -142,7 +142,15 @@ int main() {
     		}
 
     		menu->ejecutar();
+    		cache.invalidarActividades();
+    		cache.invalidarNoticias();
     		delete menu;
+
+    		comms.desconectar();
+    		if (!comms.conectar("127.0.0.1", 8080)) {
+    		    std::cerr << "No se pudo reconectar al servidor\n";
+    		    break;
+    		}
 
     	} else if (op == 2) {
     		flujoRegistro(comms);

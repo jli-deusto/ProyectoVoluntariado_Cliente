@@ -69,3 +69,8 @@ void CacheManager::invalidarActividades() {
     acts_cargadas = false;
     acts_cache.clear();
 }
+
+void CacheManager::invalidarNoticias() {
+      noticias_cargadas = false;
+      noticias_cache.clear();
+  }
